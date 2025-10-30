@@ -1,0 +1,16 @@
+/* Custom styles for About Page */
+.profile-img {
+  transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
+
+html, body {
+  overflow-x: hidden;
+}
+a, button, img, .group,div, .group * {
+  transition: all 0.3s ease-in-out;
+}

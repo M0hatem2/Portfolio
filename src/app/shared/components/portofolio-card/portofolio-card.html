@@ -1,0 +1,142 @@
+<section class=" ">
+  <div class="max-w-screen-xl mx-auto">
+
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div *ngFor="let project of displayedProjects" (click)="openModal(project)"
+        class="group relative rounded-2xl overflow-hidden bg-white/10 backdrop-blur-lg shadow-lg cursor-pointer transform transition duration-500 hover:scale-[1.03]">
+        <img [src]="project.mainImage" alt="{{ project.title }}"
+          class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
+
+        <div class="p-5 space-y-2">
+          <h3 class="text-2xl font-bold group-hover:text-primary transition">{{ project.title }}</h3>
+          <p class="text-gray-300 text-sm">{{ project.description }}</p>
+
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span *ngFor="let tech of project.technologies"
+              class="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-semibold">{{ tech }}</span>
+          </div>
+        </div>
+
+        <div
+          class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 flex justify-center items-center transition">
+          <span class="text-white text-sm tracking-wider">View Details</span>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- 🔹 Modal -->
+<div
+  *ngIf="showModal"
+  class="fixed inset-0 bg-black/80 flex justify-center items-center z-50 backdrop-blur-md px-4 "(click)="closeModal()"
+>
+  <div
+    class="bg-gradient-to-br from-neutral-900 via-neutral-950 to-neutral-900 rounded-3xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto relative p-6 md:p-10 animate-fade-in border border-white/10"
+  >
+    <!-- ✖ Close Button -->
+    <button
+      (click)="closeModal()"
+      class="absolute top-4 right-4 text-gray-300 hover:text-secondary text-2xl transition"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- 🖼️ Main Image -->
+    <div class="rounded-2xl overflow-hidden mb-8 shadow-xl border border-white/10">
+      <img
+        [src]="selectedProject.mainImage"
+        [alt]="selectedProject.title"
+        class="w-full h-72 md:h-96 object-cover transition-transform duration-700 hover:scale-105"
+      />
+    </div>
+
+    <!-- 🧾 Title + Description -->
+    <div class="mb-8">
+      <h3
+        class="text-3xl md:text-4xl font-extrabold text-secondary mb-4 flex items-center gap-3"
+      >
+        <i class="fa-solid fa-diagram-project text-secondary"></i>
+        {{ selectedProject.title }}
+      </h3>
+      <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+        {{ selectedProject.description }}
+      </p>
+    </div>
+
+    <!-- 💻 Technologies -->
+    <div class="mb-8">
+      <h4
+        class="text-xl font-semibold text-white mb-3 flex items-center gap-2"
+      >
+        <i class="fa-solid fa-code text-secondary"></i>
+        Technologies Used
+      </h4>
+      <div class="flex flex-wrap gap-2">
+        <span
+          *ngFor="let tech of selectedProject.technologies"
+          class="px-3 py-1.5 rounded-full bg-white/10 text-secondary font-medium text-sm border border-secondary/30"
+        >
+          <i class="fa-solid fa-circle-dot text-[10px] mr-1 text-secondary/80"></i>
+          {{ tech }}
+        </span>
+      </div>
+    </div>
+
+    <!-- 🖼️ Gallery -->
+    <div class="mb-10">
+      <h4
+        class="text-xl font-semibold text-white mb-4 flex items-center gap-2"
+      >
+        <i class="fa-regular fa-images text-secondary"></i>
+        Gallery
+      </h4>
+
+      <div
+        class="flex gap-4 overflow-x-auto pb-3 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-secondary/40 scrollbar-track-white/5"
+      >
+        <img
+          *ngFor="let img of selectedProject.gallery"
+          [src]="img"
+          class="w-64 h-44 object-cover rounded-xl shadow-md snap-center hover:scale-105 transition-transform duration-300 border border-white/10"
+        />
+      </div>
+    </div>
+
+    <!-- 🔗 Links -->
+    <div
+      class="flex flex-wrap justify-between items-center gap-4 pt-6 border-t border-white/10"
+    >
+      <div class="flex gap-4">
+        <a
+          [href]="selectedProject.github"
+          target="_blank"
+          class="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-secondary/20 text-secondary rounded-lg transition text-sm font-semibold"
+        >
+          <i class="fa-brands fa-github text-xl"></i>
+          GitHub
+        </a>
+
+        <a
+          [href]="selectedProject.link"
+          target="_blank"
+          class="flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-secondary/80 text-white rounded-lg transition text-sm font-semibold"
+        >
+          <i class="fa-solid fa-up-right-from-square text-sm"></i>
+          Live Demo
+        </a>
+      </div>
+
+      <button
+        (click)="closeModal()"
+        class="text-gray-400 hover:text-secondary text-sm transition flex items-center gap-1"
+      >
+        <i class="fa-solid fa-circle-xmark"></i>
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
+
+</section>

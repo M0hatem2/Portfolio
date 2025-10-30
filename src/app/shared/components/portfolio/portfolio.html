@@ -1,0 +1,38 @@
+<section id="works" class="relative py-10 overflow-hidden">
+      <div class="max-w-screen-xl mx-auto px-6">
+
+            <!-- Section Title -->
+            <div class="text-center mb-20">
+                  <h2
+                        class="text-5xl relative font-extrabold text-primary mb-4 opacity-0 translate-y-8 animate-fade-up">
+                        My Portfolio
+                        <div
+                              class="absolute inset-x-0 -bottom-7 mb-4 w-24 h-1 bg-accent mx-auto rounded-full animate-scale-in delay-2">
+                        </div>
+
+                  </h2>
+
+                  <p
+                        class="text-neutral/70 dark:text-neutral/400 max-w-2xl mx-auto leading-relaxed opacity-0 translate-y-8 animate-fade-up delay-1">
+                        A selection of my favorite projects where creativity meets performance.
+                  </p>
+
+            </div>
+
+            <!-- Works Grid -->
+            <div >
+              <app-portofolio-card    (projectOpened)="onProjectOpened($event)"></app-portofolio-card>
+            </div>
+
+            <!-- see more button -->
+            <div class="text-center mt-16">
+                  <a routerLink="/portfolio"
+                        class="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white font-semibold rounded-full hover:bg-accent transition-all duration-500 hover:scale-105">
+                        See More Projects <i class="fa-solid fa-arrow-right-long"></i>
+                  </a>
+                  <p class="mt-4 text-sm text-neutral/70 dark:text-neutral/400">
+                        More projects coming soon — stay tuned!
+                  </p>
+            </div>
+      </div>
+</section>

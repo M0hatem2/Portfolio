@@ -1,0 +1,17 @@
+<!-- Stats -->
+<div
+      class="bg-gradient-to-br from-white via-white to-primary/5 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-500 border border-primary/10 opacity-0 translate-y-6 reveal delay-4">
+      <h4 class="font-semibold text-primary mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-chart-line text-primary/70"></i> Stats
+      </h4>
+      <div class="grid grid-cols-2 gap-6">
+            <div *ngFor="let stat of stats"
+                  class="text-center hover:scale-105 transition-transform duration-500 ease-out">
+                  <div class="text-4xl font-extrabold text-primary counter drop-shadow-sm"
+                        [attr.data-target]="stat.value">
+                        0
+                  </div>
+                  <div class="text-sm text-neutral/70 mt-1">{{stat.label}}</div>
+            </div>
+      </div>
+</div>

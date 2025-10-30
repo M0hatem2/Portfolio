@@ -1,0 +1,18 @@
+    <!-- Tools -->
+                        <div
+                              class="bg-gradient-to-br from-white via-white to-primary/5 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-500 border border-primary/10 opacity-0 translate-y-6 reveal delay-6 mt-6">
+                              <h4 class="font-semibold text-primary mb-4 flex items-center gap-2">
+                                    <i class="fa-solid fa-tools text-primary/70"></i> Tools
+                              </h4>
+                              <div class="space-y-5">
+                                    <div *ngFor="let tool of tools">
+                                          <div class="flex justify-between mb-1">
+                                                <span class="text-neutral/90 font-medium">{{tool.name}}</span>
+                                                <span class="text-sm  text-neutral/60">{{tool.percentage}}%</span>
+                                          </div>
+                                          <div class="h-2.5 rounded-full transition-all duration-700 ease-out bg-gradient-to-r from-[#60694F] to-[#B8B5A2]"
+                                                [style.width.%]="tool.percentage">
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>

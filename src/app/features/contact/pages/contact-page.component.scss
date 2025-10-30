@@ -1,0 +1,9 @@
+/* Custom styles for Contact Page */
+.contact-form {
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  transform: scale(1.02);
+}

@@ -1,0 +1,85 @@
+<section class="py-20 bg-accent/10 transition-all duration-300 ease-in-out" id="about-me">
+      <div class="max-w-screen-xl mx-auto px-6">
+            <!-- Header -->
+            <div class="mb-12 text-center">
+                  <h2
+                        class="text-5xl relative font-extrabold text-primary mb-4 opacity-0 translate-y-8 animate-fade-up">
+                        About Me <div
+                              class="absolute inset-x-0 -bottom-7 mb-4 w-24 h-1 bg-accent mx-auto rounded-full animate-scale-in delay-2">
+                        </div>
+
+                  </h2>
+                  <p class="text-neutral/80 max-w-2xl mx-auto opacity-0 translate-y-6 reveal delay-1 pt-5">
+                        {{personalInfo.description}}
+                  </p>
+            </div>
+
+            <!-- Grid: content (3) + image (1) -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-center ">
+                  <!-- Content (3 cols) -->
+                  <div class="md:col-span-3 space-y-8">
+                      <app-card-cv></app-card-cv>
+
+
+                        <!-- Bio / bullet points -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                             <app-about-card></app-about-card>
+
+                            <app-stats-card></app-stats-card>
+                        </div>
+
+                      <app-skills></app-skills>
+
+                    <app-tools></app-tools>
+
+                        <!-- Languages -->
+                       <app-languages></app-languages>
+
+                        <!-- Timeline / Experience -->
+                       <app-experience></app-experience>
+
+                  </div>
+
+                  <!-- Image Card (1 col) -->
+                  <div class="md:col-span-1 flex justify-center">
+                        <div
+                              class="w-full max-w-xs rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-0.5 hover:scale-[1.03] opacity-0 translate-y-6 reveal delay-3 bg-gradient-to-br from-white via-white to-primary/5 border border-primary/10 relative group">
+
+                              <!-- Profile Image -->
+                              <div class="relative overflow-hidden">
+                                    <img [src]="personalInfo.image" [alt]="personalInfo.imageAlt"
+                                          class="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+
+                                    <!-- Subtle gradient overlay -->
+                                    <div
+                                          class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    </div>
+
+                                    <!-- Floating icon effect -->
+                                    <div
+                                          class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-primary p-2 rounded-xl shadow-sm opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:-translate-y-1">
+                                          <i class="fa-solid fa-star text-primary/80"></i>
+                                    </div>
+                              </div>
+
+                              <!-- Info section -->
+                              <div class="p-5 text-center bg-white">
+                                    <h5 class="text-xl font-bold text-primary mb-1 tracking-wide">{{ personalInfo.name
+                                          }}</h5>
+                                    <p class="text-sm text-neutral/70">{{ personalInfo.title }}</p>
+
+                                    <!-- Social Links -->
+                                    <div class="mt-4 flex justify-center gap-4">
+                                          <a *ngFor="let link of socialLinks" [href]="link.url"
+                                                class="text-primary/80 hover:text-accent transition-all duration-300 transform hover:-translate-y-1"
+                                                [attr.aria-label]="link.ariaLabel">
+                                                <i [class]="link.icon" class="text-2xl"></i>
+                                          </a>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+
+            </div>
+      </div>
+</section>
